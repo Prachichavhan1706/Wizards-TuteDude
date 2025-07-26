@@ -1,52 +1,124 @@
-import React, { useState } from "react";
-
-const certificates = [
-  { id: 1, result: "Passed", supplier: "FreshMart", date: "2025-07-25", url: "#" },
-  // Add more certificates here
-];
+import React, { useState, useEffect } from "react";
+import {
+  collection,
+  addDoc,
+  serverTimestamp,
+  query,
+  where,
+  onSnapshot,
+  updateDoc,
+  doc,
+} from "firebase/firestore";
+import { db, auth } from "../firebase";
+// Removed Firebase Storage import since not used now
 
 export default function QualityCheck() {
+  const currentUser = auth.currentUser;
+
+  // Local states
   const [booked, setBooked] = useState(false);
   const [supplierName, setSupplierName] = useState("");
   const [file, setFile] = useState(null);
   const [uploading, setUploading] = useState(false);
   const [uploadSuccess, setUploadSuccess] = useState(false);
+  const [qualityChecks, setQualityChecks] = useState([]); // fetched from Firestore
+  const [selectedCheckId, setSelectedCheckId] = useState(null); // which qualityCheck are we uploading for?
 
-  const handleBooking = (e) => {
+  // Fetch all quality checks for the current vendor, real-time updates
+  useEffect(() => {
+    if (!currentUser) return;
+
+    const q = query(
+      collection(db, "qualityChecks"),
+      where("vendorId", "==", currentUser.uid)
+    );
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      const checks = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      setQualityChecks(checks);
+    });
+
+    return () => unsubscribe();
+  }, [currentUser]);
+
+  // Handle booking a new quality check request
+  const handleBooking = async (e) => {
     e.preventDefault();
     if (!supplierName.trim()) {
       alert("Please enter a supplier name");
       return;
     }
-    setBooked(true);
-    // TODO: Call backend API to create quality check booking with supplierName
-    console.log("Booked quality check for:", supplierName);
+
+    try {
+      const docRef = await addDoc(collection(db, "qualityChecks"), {
+        vendorId: currentUser.uid,
+        supplierName,
+        status: "requested",
+        createdAt: serverTimestamp(),
+      });
+      setBooked(true);
+      setSupplierName("");
+      setSelectedCheckId(docRef.id); // Select this for potential upload
+      alert("Quality check requested!");
+    } catch (error) {
+      alert("Failed to request quality check: " + error.message);
+    }
   };
 
+  // Handle file input change
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
     setUploadSuccess(false);
   };
 
+  // Clear selected file before upload
   const handleClearFile = () => {
     setFile(null);
     setUploadSuccess(false);
   };
 
-  const handleUpload = () => {
+  // Upload certificate file to Cloudinary and update Firestore doc
+  const handleUpload = async () => {
     if (!file) return;
+    if (!selectedCheckId) {
+      alert("No related quality check selected for upload.");
+      return;
+    }
+
     setUploading(true);
 
-    // TODO: Implement actual file upload logic here (e.g., to backend or cloud storage)
-    console.log("Uploading file:", file);
+    const data = new FormData();
+    data.append("file", file);
+    data.append("upload_preset", "certificate_uploads");  // your preset name exactly
+    
+    try {
+      // Upload to Cloudinary unsigned endpoint
+      const res = await fetch(
+        "https://api.cloudinary.com/v1_1/dcguxvuzb/upload",  // <-- Replace this!
+        {
+          method: "POST",
+          body: data,
+        }
+      );
+      const uploadResult = await res.json();
 
-    // Simulate upload delay
-    setTimeout(() => {
-      setUploading(false);
+      if (!uploadResult.secure_url) {
+        throw new Error("Upload failed");
+      }
+
+      // Update Firestore document with Cloudinary URL and status
+      await updateDoc(doc(db, "qualityChecks", selectedCheckId), {
+        certificateUrl: uploadResult.secure_url,
+        status: "complete",
+      });
+
       setUploadSuccess(true);
       setFile(null);
       alert("Certificate uploaded successfully!");
-    }, 2000);
+    } catch (error) {
+      alert("Upload failed: " + error.message);
+    } finally {
+      setUploading(false);
+    }
   };
 
   return (
@@ -132,10 +204,7 @@ export default function QualityCheck() {
       )}
 
       {/* Certificates Section */}
-      <section
-        aria-label="Certificates List"
-        style={{ marginBottom: "40px" }}
-      >
+      <section aria-label="Certificates List" style={{ marginBottom: "40px" }}>
         <h3
           style={{
             borderBottom: "2px solid #219150",
@@ -145,11 +214,11 @@ export default function QualityCheck() {
         >
           Certificates
         </h3>
-        {certificates.length === 0 ? (
+        {qualityChecks.length === 0 ? (
           <p style={{ color: "#777", fontStyle: "italic" }}>No certificates found.</p>
         ) : (
           <ul style={{ listStyle: "none", paddingLeft: 0, margin: 0 }}>
-            {certificates.map((cert) => (
+            {qualityChecks.map((cert) => (
               <li
                 key={cert.id}
                 style={{
@@ -166,21 +235,29 @@ export default function QualityCheck() {
                 }}
               >
                 <span>
-                  <strong>{cert.supplier}</strong> — {cert.result} ({cert.date})
+                  <strong>{cert.supplierName || "Unknown Supplier"}</strong> —{" "}
+                  {cert.status.charAt(0).toUpperCase() + cert.status.slice(1)}{" "}
+                  {cert.createdAt?.toDate ? `(${cert.createdAt.toDate().toLocaleDateString()})` : ""}
                 </span>
-                <a
-                  href={cert.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    color: "#219150",
-                    textDecoration: "none",
-                    fontWeight: "600",
-                  }}
-                  aria-label={`View certificate for ${cert.supplier}`}
-                >
-                  View Certificate
-                </a>
+                {cert.certificateUrl ? (
+                  <a
+                    href={cert.certificateUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      color: "#219150",
+                      textDecoration: "none",
+                      fontWeight: "600",
+                    }}
+                    aria-label={`View certificate for ${cert.supplierName || "supplier"}`}
+                  >
+                    View Certificate
+                  </a>
+                ) : (
+                  <span style={{ fontStyle: "italic", color: "#777" }}>
+                    No certificate uploaded
+                  </span>
+                )}
               </li>
             ))}
           </ul>
@@ -188,97 +265,99 @@ export default function QualityCheck() {
       </section>
 
       {/* Upload Section */}
-      <section aria-label="Upload Certificate">
-        <h3
-          style={{
-            borderBottom: "2px solid #219150",
-            paddingBottom: "8px",
-            marginBottom: "16px",
-          }}
-        >
-          Upload Certificate
-        </h3>
-        <label
-          htmlFor="certificateUpload"
-          style={{
-            display: "block",
-            marginBottom: "12px",
-            fontWeight: "600",
-            color: "#2d662a",
-          }}
-        >
-          Select certificate file:
-        </label>
-        <input
-          id="certificateUpload"
-          type="file"
-          onChange={handleFileChange}
-          accept=".pdf,.jpg,.jpeg,.png"
-          style={{
-            marginBottom: "16px",
-            cursor: "pointer",
-          }}
-          aria-describedby="upload-info"
-        />
-        {file && (
-          <div
+      {selectedCheckId && (
+        <section aria-label="Upload Certificate">
+          <h3
             style={{
-              marginBottom: "12px",
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
+              borderBottom: "2px solid #219150",
+              paddingBottom: "8px",
+              marginBottom: "16px",
             }}
           >
-            <strong>Selected file:</strong> {file.name}
-            <button
-              type="button"
-              onClick={handleClearFile}
-              aria-label="Clear selected file"
+            Upload Certificate
+          </h3>
+          <label
+            htmlFor="certificateUpload"
+            style={{
+              display: "block",
+              marginBottom: "12px",
+              fontWeight: "600",
+              color: "#2d662a",
+            }}
+          >
+            Select certificate file:
+          </label>
+          <input
+            id="certificateUpload"
+            type="file"
+            onChange={handleFileChange}
+            accept=".pdf,.jpg,.jpeg,.png"
+            style={{
+              marginBottom: "16px",
+              cursor: "pointer",
+            }}
+            aria-describedby="upload-info"
+          />
+          {file && (
+            <div
               style={{
-                backgroundColor: "transparent",
-                border: "none",
-                color: "#d32f2f",
-                cursor: "pointer",
-                fontWeight: "700",
-                fontSize: "1rem",
-                padding: "0 4px",
+                marginBottom: "12px",
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
               }}
             >
-              ×
-            </button>
-          </div>
-        )}
-        <button
-          type="button"
-          onClick={handleUpload}
-          disabled={!file || uploading}
-          style={{
-            backgroundColor: file && !uploading ? "#219150" : "#a5d6a7",
-            color: "white",
-            padding: "12px 24px",
-            border: "none",
-            borderRadius: "8px",
-            fontWeight: "600",
-            cursor: file && !uploading ? "pointer" : "not-allowed",
-            fontSize: "1rem",
-            width: "100%",
-            transition: "background-color 0.3s",
-          }}
-          aria-disabled={!file || uploading}
-          aria-busy={uploading}
-        >
-          {uploading ? "Uploading..." : "Upload"}
-        </button>
-        {uploadSuccess && (
-          <p
-            id="upload-info"
-            style={{ marginTop: "12px", color: "#2d662a", fontWeight: "600" }}
-            role="status"
+              <strong>Selected file:</strong> {file.name}
+              <button
+                type="button"
+                onClick={handleClearFile}
+                aria-label="Clear selected file"
+                style={{
+                  backgroundColor: "transparent",
+                  border: "none",
+                  color: "#d32f2f",
+                  cursor: "pointer",
+                  fontWeight: "700",
+                  fontSize: "1rem",
+                  padding: "0 4px",
+                }}
+              >
+                ×
+              </button>
+            </div>
+          )}
+          <button
+            type="button"
+            onClick={handleUpload}
+            disabled={!file || uploading}
+            style={{
+              backgroundColor: file && !uploading ? "#219150" : "#a5d6a7",
+              color: "white",
+              padding: "12px 24px",
+              border: "none",
+              borderRadius: "8px",
+              fontWeight: "600",
+              cursor: file && !uploading ? "pointer" : "not-allowed",
+              fontSize: "1rem",
+              width: "100%",
+              transition: "background-color 0.3s",
+            }}
+            aria-disabled={!file || uploading}
+            aria-busy={uploading}
           >
-            Certificate uploaded successfully!
-          </p>
-        )}
-      </section>
+            {uploading ? "Uploading..." : "Upload"}
+          </button>
+          {uploadSuccess && (
+            <p
+              id="upload-info"
+              style={{ marginTop: "12px", color: "#2d662a", fontWeight: "600" }}
+              role="status"
+            >
+              Certificate uploaded successfully!
+            </p>
+          )}
+        </section>
+      )}
     </main>
   );
 }
