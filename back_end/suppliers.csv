@@ -1,0 +1,101 @@
+location,category,qualityRating,name,contactEmail,supplierId
+New York,Electronics,4.5,Acme Industries,USA,S001
+Delhi,Agriculture,4.2,Global Agro Ltd,India,S002
+Berlin,Manufacturing,3.9,Precision Parts Co.,Germany,S003
+Shanghai,Textiles,4,Eastern Supplies,China,S004
+Toronto,Metals & Mining,4.1,Northern Metals,Canada,S005
+São Paulo,Food & Beverages,4.3,Sunrise Foods,Brazil,S006
+Seoul,Electronics,4.6,Bright Electronics,South Korea,S007
+Jakarta,Textiles,3.8,Oceanic Textiles,Indonesia,S008
+Warsaw,Plastics,3.7,Silverstone Plastics,Poland,S009
+Nairobi,Agriculture,4.4,Greenfield Farms,Kenya,S010
+Chicago,Packaging,4,Metro Packaging,USA,S011
+Kathmandu,Metals & Mining,4.7,Everest Steel,Nepal,S012
+Sydney,Rubber,3.9,Pacific Rubber Corp,Australia,S013
+Houston,Chemicals,4.3,Summit Chemicals,USA,S014
+Lahore,Textiles,3.6,Windward Textiles,Pakistan,S015
+Toronto,Electronics,4.2,Northern Electronics,Canada,S016
+Miami,Food & Beverages,3.8,Southern Foods,USA,S017
+Moscow,Metals & Mining,4.5,Fortress Metals,Russia,S018
+Amsterdam,Packaging,4.1,Eco-Pack Solutions,Netherlands,S019
+Melbourne,Agriculture,3.7,Urban Farming,Australia,S020
+Zurich,Plastics,4.3,Quantum Plastics,Switzerland,S021
+Birmingham,Automotive,4.4,Dynamic Auto Parts,UK,S022
+Manila,Rubber,3.5,Evergreen Rubber,Philippines,S023
+Barcelona,Textiles,4,Blue Horizon Textiles,Spain,S024
+Toronto,Food & Beverages,4.6,Grand Foods,Canada,S025
+Vancouver,Plastics,3.9,Peak Plastics,Canada,S026
+Gothenburg,Metals & Mining,4.2,Prime Metals,Sweden,S027
+Cape Town,Textiles,4.1,Silver Leaf Textiles,South Africa,S028
+Minneapolis,Agriculture,4.4,True Harvest Agriculture,USA,S029
+Hong Kong,Electronics,3.7,Crystal Electronics,China,S030
+Denver,Packaging,4.3,Central Packaging,USA,S031
+London,Food & Beverages,4.5,Starline Foods,UK,S032
+Dubai,Chemicals,3.8,Atlas Chemicals,UAE,S033
+Toronto,Rubber,3.9,NexGen Rubber,Canada,S034
+Frankfurt,Metals & Mining,4.2,Continental Metals,Germany,S035
+Bangkok,Textiles,4,Valley Textiles,Thailand,S036
+Singapore,Plastics,4.1,Golden Bay Plastics,sales@goldenbayplastics.sg,S037
+Detroit,Automotive,4.3,Everest Auto,USA,S038
+Mumbai,Food & Beverages,4.4,Global Food Traders,India,S039
+Tokyo,Packaging,3.9,Pacific Packaging Solutions,Japan,S040
+Helsinki,Electronics,4.2,Orion Electronics,Finland,S041
+Nashville,Agriculture,3.7,Riverbend Farms,USA,S042
+Mumbai,Chemicals,4.1,Sapphire Chemicals,India,S043
+Lima,Textiles,4.5,Sunset Textiles,Peru,S044
+Jakarta,Rubber,3.6,Eagle Rubber,Indonesia,S045
+Mexico City,Metals & Mining,4.3,Heritage Metals,Mexico,S046
+Auckland,Plastics,4,Blue Sky Plastics,New Zealand,S047
+Denver,Food & Beverages,4.2,Mountain Peak Foods,USA,S048
+Seoul,Electronics,4.4,Infinity Electronics,South Korea,S049
+Portland,Agriculture,3.9,Grove Farms,USA,S050
+Chicago,Metals & Mining,4.1,Metro Metals,USA,S051
+Vancouver,Textiles,3.8,Wildflower Textiles,Canada,S052
+New York,Packaging,4.3,Skyline Packaging,USA,S053
+Brisbane,Plastics,4,Riverfront Plastics,Australia,S054
+Boston,Food & Beverages,4.5,Lighthouse Foods,USA,S055
+Zurich,Chemicals,3.9,Pinnacle Chemicals,Switzerland,S056
+Miami,Rubber,4.1,Coastal Rubber,USA,S057
+Houston,Electronics,4.4,Evergreen Electronics,USA,S058
+Calgary,Metals & Mining,3.7,Silver Creek Metals,Canada,S059
+Dallas,Agriculture,4.2,Golden Harvest Farms,USA,S060
+Helsinki,Textiles,3.9,Frontier Textiles,Finland,S061
+Oslo,Packaging,4.3,Atlas Packaging,Norway,S062
+Summit,Chemicals,4,Mountain Ridge Chemicals,USA,S063
+Melbourne,Plastics,4.1,Sunbright Plastics,Australia,S064
+San Francisco,Electronics,4.5,Harbor Electronics,USA,S065
+Phoenix,Metals & Mining,4,Valley Metals,USA,S066
+Columbus,Food & Beverages,3.8,Riverbend Foods,USA,S067
+Rotterdam,Textiles,4.4,Sapphire Textiles,Netherlands,S068
+Washington DC,Packaging,3.9,Capital Packaging,USA,S069
+Chicago,Rubber,4.1,Liberty Rubber,USA,S070
+Denver,Metals & Mining,4.3,Sunset Metals,USA,S071
+Seattle,Food & Beverages,4.5,Summit Foods,USA,S072
+Kathmandu,Textiles,3.9,Everest Textiles,Nepal,S073
+San Diego,Packaging,4,Oceanic Packaging,USA,S074
+Minneapolis,Electronics,4.2,Clearview Electronics,USA,S075
+Atlanta,Plastics,3.8,NextGen Plastics,USA,S076
+Toronto,Metals & Mining,4.5,Windsor Metals,Canada,S077
+Las Vegas,Food & Beverages,4.1,Horizon Foods,USA,S078
+Dublin,Textiles,3.7,Urban Textiles,Ireland,S079
+Salt Lake City,Packaging,4.3,Peak Packaging,USA,S080
+London,Rubber,3.9,Greenfield Rubber,UK,S081
+Edinburgh,Plastics,4,Capital Plastics,UK,S082
+Perth,Metals & Mining,4.4,Sunrise Metals,Australia,S083
+Bristol,Electronics,4.2,Grace Electronics,UK,S084
+Miami,Agriculture,4.3,Fresh Farms,USA,S085
+Honolulu,Textiles,3.6,Pacific Textiles,USA,S086
+New Orleans,Packaging,4.5,Liberty Packaging,USA,S087
+Denver,Chemicals,4.1,Ascend Chemicals,USA,S088
+Montreal,Food & Beverages,3.8,Northern Goods,Canada,S089
+Toronto,Metals & Mining,4.6,Precision Metals,Canada,S090
+Vancouver,Plastics,4,Terrace Plastics,Canada,S091
+Calgary,Electronics,4.3,Summit Electronics,Canada,S092
+Halifax,Textiles,3.9,Mariner Textiles,Canada,S093
+Boston,Food & Beverages,4.2,Metro Foods,USA,S094
+Philadelphia,Packaging,4.4,Element Packaging,USA,S095
+Chicago,Metals & Mining,3.7,Silverline Metals,USA,S096
+Portland,Rubber,4.1,Summit Rubber,USA,S097
+Seattle,Plastics,4,Horizon Plastics,USA,S098
+San Jose,Electronics,4.3,Valley Electronics,USA,S099
+Detroit,Automotive,4.5,Imperial Automotives,USA,S100
