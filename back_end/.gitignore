@@ -69,3 +69,4 @@ node_modules/
 .dataconnect
 
 back_end/serviceAccountKey.json
+.DS_Store
