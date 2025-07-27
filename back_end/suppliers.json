@@ -1,0 +1,802 @@
+[
+  {
+    "supplierId": "S001",
+    "name": "Acme Industries",
+    "category": "Electronics",
+    "qualityRating": 4.5,
+    "location": "New York",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S002",
+    "name": "Global Agro Ltd",
+    "category": "Agriculture",
+    "qualityRating": 4.2,
+    "location": "Delhi",
+    "contactEmail": "India"
+  },
+  {
+    "supplierId": "S003",
+    "name": "Precision Parts Co.",
+    "category": "Manufacturing",
+    "qualityRating": 3.9,
+    "location": "Berlin",
+    "contactEmail": "Germany"
+  },
+  {
+    "supplierId": "S004",
+    "name": "Eastern Supplies",
+    "category": "Textiles",
+    "qualityRating": 4,
+    "location": "Shanghai",
+    "contactEmail": "China"
+  },
+  {
+    "supplierId": "S005",
+    "name": "Northern Metals",
+    "category": "Metals & Mining",
+    "qualityRating": 4.1,
+    "location": "Toronto",
+    "contactEmail": "Canada"
+  },
+  {
+    "supplierId": "S006",
+    "name": "Sunrise Foods",
+    "category": "Food & Beverages",
+    "qualityRating": 4.3,
+    "location": "São Paulo",
+    "contactEmail": "Brazil"
+  },
+  {
+    "supplierId": "S007",
+    "name": "Bright Electronics",
+    "category": "Electronics",
+    "qualityRating": 4.6,
+    "location": "Seoul",
+    "contactEmail": "South Korea"
+  },
+  {
+    "supplierId": "S008",
+    "name": "Oceanic Textiles",
+    "category": "Textiles",
+    "qualityRating": 3.8,
+    "location": "Jakarta",
+    "contactEmail": "Indonesia"
+  },
+  {
+    "supplierId": "S009",
+    "name": "Silverstone Plastics",
+    "category": "Plastics",
+    "qualityRating": 3.7,
+    "location": "Warsaw",
+    "contactEmail": "Poland"
+  },
+  {
+    "supplierId": "S010",
+    "name": "Greenfield Farms",
+    "category": "Agriculture",
+    "qualityRating": 4.4,
+    "location": "Nairobi",
+    "contactEmail": "Kenya"
+  },
+  {
+    "supplierId": "S011",
+    "name": "Metro Packaging",
+    "category": "Packaging",
+    "qualityRating": 4,
+    "location": "Chicago",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S012",
+    "name": "Everest Steel",
+    "category": "Metals & Mining",
+    "qualityRating": 4.7,
+    "location": "Kathmandu",
+    "contactEmail": "Nepal"
+  },
+  {
+    "supplierId": "S013",
+    "name": "Pacific Rubber Corp",
+    "category": "Rubber",
+    "qualityRating": 3.9,
+    "location": "Sydney",
+    "contactEmail": "Australia"
+  },
+  {
+    "supplierId": "S014",
+    "name": "Summit Chemicals",
+    "category": "Chemicals",
+    "qualityRating": 4.3,
+    "location": "Houston",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S015",
+    "name": "Windward Textiles",
+    "category": "Textiles",
+    "qualityRating": 3.6,
+    "location": "Lahore",
+    "contactEmail": "Pakistan"
+  },
+  {
+    "supplierId": "S016",
+    "name": "Northern Electronics",
+    "category": "Electronics",
+    "qualityRating": 4.2,
+    "location": "Toronto",
+    "contactEmail": "Canada"
+  },
+  {
+    "supplierId": "S017",
+    "name": "Southern Foods",
+    "category": "Food & Beverages",
+    "qualityRating": 3.8,
+    "location": "Miami",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S018",
+    "name": "Fortress Metals",
+    "category": "Metals & Mining",
+    "qualityRating": 4.5,
+    "location": "Moscow",
+    "contactEmail": "Russia"
+  },
+  {
+    "supplierId": "S019",
+    "name": "Eco-Pack Solutions",
+    "category": "Packaging",
+    "qualityRating": 4.1,
+    "location": "Amsterdam",
+    "contactEmail": "Netherlands"
+  },
+  {
+    "supplierId": "S020",
+    "name": "Urban Farming",
+    "category": "Agriculture",
+    "qualityRating": 3.7,
+    "location": "Melbourne",
+    "contactEmail": "Australia"
+  },
+  {
+    "supplierId": "S021",
+    "name": "Quantum Plastics",
+    "category": "Plastics",
+    "qualityRating": 4.3,
+    "location": "Zurich",
+    "contactEmail": "Switzerland"
+  },
+  {
+    "supplierId": "S022",
+    "name": "Dynamic Auto Parts",
+    "category": "Automotive",
+    "qualityRating": 4.4,
+    "location": "Birmingham",
+    "contactEmail": "UK"
+  },
+  {
+    "supplierId": "S023",
+    "name": "Evergreen Rubber",
+    "category": "Rubber",
+    "qualityRating": 3.5,
+    "location": "Manila",
+    "contactEmail": "Philippines"
+  },
+  {
+    "supplierId": "S024",
+    "name": "Blue Horizon Textiles",
+    "category": "Textiles",
+    "qualityRating": 4,
+    "location": "Barcelona",
+    "contactEmail": "Spain"
+  },
+  {
+    "supplierId": "S025",
+    "name": "Grand Foods",
+    "category": "Food & Beverages",
+    "qualityRating": 4.6,
+    "location": "Toronto",
+    "contactEmail": "Canada"
+  },
+  {
+    "supplierId": "S026",
+    "name": "Peak Plastics",
+    "category": "Plastics",
+    "qualityRating": 3.9,
+    "location": "Vancouver",
+    "contactEmail": "Canada"
+  },
+  {
+    "supplierId": "S027",
+    "name": "Prime Metals",
+    "category": "Metals & Mining",
+    "qualityRating": 4.2,
+    "location": "Gothenburg",
+    "contactEmail": "Sweden"
+  },
+  {
+    "supplierId": "S028",
+    "name": "Silver Leaf Textiles",
+    "category": "Textiles",
+    "qualityRating": 4.1,
+    "location": "Cape Town",
+    "contactEmail": "South Africa"
+  },
+  {
+    "supplierId": "S029",
+    "name": "True Harvest Agriculture",
+    "category": "Agriculture",
+    "qualityRating": 4.4,
+    "location": "Minneapolis",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S030",
+    "name": "Crystal Electronics",
+    "category": "Electronics",
+    "qualityRating": 3.7,
+    "location": "Hong Kong",
+    "contactEmail": "China"
+  },
+  {
+    "supplierId": "S031",
+    "name": "Central Packaging",
+    "category": "Packaging",
+    "qualityRating": 4.3,
+    "location": "Denver",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S032",
+    "name": "Starline Foods",
+    "category": "Food & Beverages",
+    "qualityRating": 4.5,
+    "location": "London",
+    "contactEmail": "UK"
+  },
+  {
+    "supplierId": "S033",
+    "name": "Atlas Chemicals",
+    "category": "Chemicals",
+    "qualityRating": 3.8,
+    "location": "Dubai",
+    "contactEmail": "UAE"
+  },
+  {
+    "supplierId": "S034",
+    "name": "NexGen Rubber",
+    "category": "Rubber",
+    "qualityRating": 3.9,
+    "location": "Toronto",
+    "contactEmail": "Canada"
+  },
+  {
+    "supplierId": "S035",
+    "name": "Continental Metals",
+    "category": "Metals & Mining",
+    "qualityRating": 4.2,
+    "location": "Frankfurt",
+    "contactEmail": "Germany"
+  },
+  {
+    "supplierId": "S036",
+    "name": "Valley Textiles",
+    "category": "Textiles",
+    "qualityRating": 4,
+    "location": "Bangkok",
+    "contactEmail": "Thailand"
+  },
+  {
+    "supplierId": "S037",
+    "name": "Golden Bay Plastics",
+    "category": "Plastics",
+    "qualityRating": 4.1,
+    "location": "Singapore",
+    "contactEmail": "sales@goldenbayplastics.sg"
+  },
+  {
+    "supplierId": "S038",
+    "name": "Everest Auto",
+    "category": "Automotive",
+    "qualityRating": 4.3,
+    "location": "Detroit",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S039",
+    "name": "Global Food Traders",
+    "category": "Food & Beverages",
+    "qualityRating": 4.4,
+    "location": "Mumbai",
+    "contactEmail": "India"
+  },
+  {
+    "supplierId": "S040",
+    "name": "Pacific Packaging Solutions",
+    "category": "Packaging",
+    "qualityRating": 3.9,
+    "location": "Tokyo",
+    "contactEmail": "Japan"
+  },
+  {
+    "supplierId": "S041",
+    "name": "Orion Electronics",
+    "category": "Electronics",
+    "qualityRating": 4.2,
+    "location": "Helsinki",
+    "contactEmail": "Finland"
+  },
+  {
+    "supplierId": "S042",
+    "name": "Riverbend Farms",
+    "category": "Agriculture",
+    "qualityRating": 3.7,
+    "location": "Nashville",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S043",
+    "name": "Sapphire Chemicals",
+    "category": "Chemicals",
+    "qualityRating": 4.1,
+    "location": "Mumbai",
+    "contactEmail": "India"
+  },
+  {
+    "supplierId": "S044",
+    "name": "Sunset Textiles",
+    "category": "Textiles",
+    "qualityRating": 4.5,
+    "location": "Lima",
+    "contactEmail": "Peru"
+  },
+  {
+    "supplierId": "S045",
+    "name": "Eagle Rubber",
+    "category": "Rubber",
+    "qualityRating": 3.6,
+    "location": "Jakarta",
+    "contactEmail": "Indonesia"
+  },
+  {
+    "supplierId": "S046",
+    "name": "Heritage Metals",
+    "category": "Metals & Mining",
+    "qualityRating": 4.3,
+    "location": "Mexico City",
+    "contactEmail": "Mexico"
+  },
+  {
+    "supplierId": "S047",
+    "name": "Blue Sky Plastics",
+    "category": "Plastics",
+    "qualityRating": 4,
+    "location": "Auckland",
+    "contactEmail": "New Zealand"
+  },
+  {
+    "supplierId": "S048",
+    "name": "Mountain Peak Foods",
+    "category": "Food & Beverages",
+    "qualityRating": 4.2,
+    "location": "Denver",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S049",
+    "name": "Infinity Electronics",
+    "category": "Electronics",
+    "qualityRating": 4.4,
+    "location": "Seoul",
+    "contactEmail": "South Korea"
+  },
+  {
+    "supplierId": "S050",
+    "name": "Grove Farms",
+    "category": "Agriculture",
+    "qualityRating": 3.9,
+    "location": "Portland",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S051",
+    "name": "Metro Metals",
+    "category": "Metals & Mining",
+    "qualityRating": 4.1,
+    "location": "Chicago",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S052",
+    "name": "Wildflower Textiles",
+    "category": "Textiles",
+    "qualityRating": 3.8,
+    "location": "Vancouver",
+    "contactEmail": "Canada"
+  },
+  {
+    "supplierId": "S053",
+    "name": "Skyline Packaging",
+    "category": "Packaging",
+    "qualityRating": 4.3,
+    "location": "New York",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S054",
+    "name": "Riverfront Plastics",
+    "category": "Plastics",
+    "qualityRating": 4,
+    "location": "Brisbane",
+    "contactEmail": "Australia"
+  },
+  {
+    "supplierId": "S055",
+    "name": "Lighthouse Foods",
+    "category": "Food & Beverages",
+    "qualityRating": 4.5,
+    "location": "Boston",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S056",
+    "name": "Pinnacle Chemicals",
+    "category": "Chemicals",
+    "qualityRating": 3.9,
+    "location": "Zurich",
+    "contactEmail": "Switzerland"
+  },
+  {
+    "supplierId": "S057",
+    "name": "Coastal Rubber",
+    "category": "Rubber",
+    "qualityRating": 4.1,
+    "location": "Miami",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S058",
+    "name": "Evergreen Electronics",
+    "category": "Electronics",
+    "qualityRating": 4.4,
+    "location": "Houston",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S059",
+    "name": "Silver Creek Metals",
+    "category": "Metals & Mining",
+    "qualityRating": 3.7,
+    "location": "Calgary",
+    "contactEmail": "Canada"
+  },
+  {
+    "supplierId": "S060",
+    "name": "Golden Harvest Farms",
+    "category": "Agriculture",
+    "qualityRating": 4.2,
+    "location": "Dallas",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S061",
+    "name": "Frontier Textiles",
+    "category": "Textiles",
+    "qualityRating": 3.9,
+    "location": "Helsinki",
+    "contactEmail": "Finland"
+  },
+  {
+    "supplierId": "S062",
+    "name": "Atlas Packaging",
+    "category": "Packaging",
+    "qualityRating": 4.3,
+    "location": "Oslo",
+    "contactEmail": "Norway"
+  },
+  {
+    "supplierId": "S063",
+    "name": "Mountain Ridge Chemicals",
+    "category": "Chemicals",
+    "qualityRating": 4,
+    "location": "Summit",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S064",
+    "name": "Sunbright Plastics",
+    "category": "Plastics",
+    "qualityRating": 4.1,
+    "location": "Melbourne",
+    "contactEmail": "Australia"
+  },
+  {
+    "supplierId": "S065",
+    "name": "Harbor Electronics",
+    "category": "Electronics",
+    "qualityRating": 4.5,
+    "location": "San Francisco",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S066",
+    "name": "Valley Metals",
+    "category": "Metals & Mining",
+    "qualityRating": 4,
+    "location": "Phoenix",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S067",
+    "name": "Riverbend Foods",
+    "category": "Food & Beverages",
+    "qualityRating": 3.8,
+    "location": "Columbus",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S068",
+    "name": "Sapphire Textiles",
+    "category": "Textiles",
+    "qualityRating": 4.4,
+    "location": "Rotterdam",
+    "contactEmail": "Netherlands"
+  },
+  {
+    "supplierId": "S069",
+    "name": "Capital Packaging",
+    "category": "Packaging",
+    "qualityRating": 3.9,
+    "location": "Washington DC",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S070",
+    "name": "Liberty Rubber",
+    "category": "Rubber",
+    "qualityRating": 4.1,
+    "location": "Chicago",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S071",
+    "name": "Sunset Metals",
+    "category": "Metals & Mining",
+    "qualityRating": 4.3,
+    "location": "Denver",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S072",
+    "name": "Summit Foods",
+    "category": "Food & Beverages",
+    "qualityRating": 4.5,
+    "location": "Seattle",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S073",
+    "name": "Everest Textiles",
+    "category": "Textiles",
+    "qualityRating": 3.9,
+    "location": "Kathmandu",
+    "contactEmail": "Nepal"
+  },
+  {
+    "supplierId": "S074",
+    "name": "Oceanic Packaging",
+    "category": "Packaging",
+    "qualityRating": 4,
+    "location": "San Diego",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S075",
+    "name": "Clearview Electronics",
+    "category": "Electronics",
+    "qualityRating": 4.2,
+    "location": "Minneapolis",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S076",
+    "name": "NextGen Plastics",
+    "category": "Plastics",
+    "qualityRating": 3.8,
+    "location": "Atlanta",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S077",
+    "name": "Windsor Metals",
+    "category": "Metals & Mining",
+    "qualityRating": 4.5,
+    "location": "Toronto",
+    "contactEmail": "Canada"
+  },
+  {
+    "supplierId": "S078",
+    "name": "Horizon Foods",
+    "category": "Food & Beverages",
+    "qualityRating": 4.1,
+    "location": "Las Vegas",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S079",
+    "name": "Urban Textiles",
+    "category": "Textiles",
+    "qualityRating": 3.7,
+    "location": "Dublin",
+    "contactEmail": "Ireland"
+  },
+  {
+    "supplierId": "S080",
+    "name": "Peak Packaging",
+    "category": "Packaging",
+    "qualityRating": 4.3,
+    "location": "Salt Lake City",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S081",
+    "name": "Greenfield Rubber",
+    "category": "Rubber",
+    "qualityRating": 3.9,
+    "location": "London",
+    "contactEmail": "UK"
+  },
+  {
+    "supplierId": "S082",
+    "name": "Capital Plastics",
+    "category": "Plastics",
+    "qualityRating": 4,
+    "location": "Edinburgh",
+    "contactEmail": "UK"
+  },
+  {
+    "supplierId": "S083",
+    "name": "Sunrise Metals",
+    "category": "Metals & Mining",
+    "qualityRating": 4.4,
+    "location": "Perth",
+    "contactEmail": "Australia"
+  },
+  {
+    "supplierId": "S084",
+    "name": "Grace Electronics",
+    "category": "Electronics",
+    "qualityRating": 4.2,
+    "location": "Bristol",
+    "contactEmail": "UK"
+  },
+  {
+    "supplierId": "S085",
+    "name": "Fresh Farms",
+    "category": "Agriculture",
+    "qualityRating": 4.3,
+    "location": "Miami",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S086",
+    "name": "Pacific Textiles",
+    "category": "Textiles",
+    "qualityRating": 3.6,
+    "location": "Honolulu",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S087",
+    "name": "Liberty Packaging",
+    "category": "Packaging",
+    "qualityRating": 4.5,
+    "location": "New Orleans",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S088",
+    "name": "Ascend Chemicals",
+    "category": "Chemicals",
+    "qualityRating": 4.1,
+    "location": "Denver",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S089",
+    "name": "Northern Goods",
+    "category": "Food & Beverages",
+    "qualityRating": 3.8,
+    "location": "Montreal",
+    "contactEmail": "Canada"
+  },
+  {
+    "supplierId": "S090",
+    "name": "Precision Metals",
+    "category": "Metals & Mining",
+    "qualityRating": 4.6,
+    "location": "Toronto",
+    "contactEmail": "Canada"
+  },
+  {
+    "supplierId": "S091",
+    "name": "Terrace Plastics",
+    "category": "Plastics",
+    "qualityRating": 4,
+    "location": "Vancouver",
+    "contactEmail": "Canada"
+  },
+  {
+    "supplierId": "S092",
+    "name": "Summit Electronics",
+    "category": "Electronics",
+    "qualityRating": 4.3,
+    "location": "Calgary",
+    "contactEmail": "Canada"
+  },
+  {
+    "supplierId": "S093",
+    "name": "Mariner Textiles",
+    "category": "Textiles",
+    "qualityRating": 3.9,
+    "location": "Halifax",
+    "contactEmail": "Canada"
+  },
+  {
+    "supplierId": "S094",
+    "name": "Metro Foods",
+    "category": "Food & Beverages",
+    "qualityRating": 4.2,
+    "location": "Boston",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S095",
+    "name": "Element Packaging",
+    "category": "Packaging",
+    "qualityRating": 4.4,
+    "location": "Philadelphia",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S096",
+    "name": "Silverline Metals",
+    "category": "Metals & Mining",
+    "qualityRating": 3.7,
+    "location": "Chicago",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S097",
+    "name": "Summit Rubber",
+    "category": "Rubber",
+    "qualityRating": 4.1,
+    "location": "Portland",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S098",
+    "name": "Horizon Plastics",
+    "category": "Plastics",
+    "qualityRating": 4,
+    "location": "Seattle",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S099",
+    "name": "Valley Electronics",
+    "category": "Electronics",
+    "qualityRating": 4.3,
+    "location": "San Jose",
+    "contactEmail": "USA"
+  },
+  {
+    "supplierId": "S100",
+    "name": "Imperial Automotives",
+    "category": "Automotive",
+    "qualityRating": 4.5,
+    "location": "Detroit",
+    "contactEmail": "USA"
+  }
+]

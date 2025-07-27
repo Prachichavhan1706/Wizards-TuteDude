@@ -1,41 +1,69 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase";
+ // Adjust the path based on your project structure
 import { Link } from "react-router-dom";
 
-const suppliers = [
-  { id: 1, name: "FreshMart", rating: 4.5, categories: ["Vegetables"], location: "Delhi" },
-  { id: 2, name: "Masala Supplies", rating: 4.7, categories: ["Spices"], location: "Mumbai" },
-  { id: 3, name: "GreenFarm", rating: 4.3, categories: ["Vegetables"], location: "Bangalore" },
-  { id: 4, name: "SpiceWorld", rating: 4.6, categories: ["Spices"], location: "Delhi" },
-];
-
 function Suppliers() {
+  const [suppliers, setSuppliers] = useState([]);
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("");
   const [location, setLocation] = useState("");
 
-  // Extract unique categories dynamically
+  // Fetch suppliers from Firestore on mount
+  useEffect(() => {
+    async function fetchSuppliers() {
+      try {
+        const snap = await getDocs(collection(db, "suppliers"));
+        const supList = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        setSuppliers(supList);
+      } catch (error) {
+        console.error("Error fetching suppliers: ", error);
+      }
+    }
+    fetchSuppliers();
+  }, []);
+
+  // Extract unique categories dynamically from suppliers data
   const categories = useMemo(() => {
     const cats = new Set();
-    suppliers.forEach(sup => sup.categories.forEach(c => cats.add(c)));
+    suppliers.forEach(sup => {
+      if (Array.isArray(sup.categories)) {
+        sup.categories.forEach(cat => cats.add(cat));
+      } else if (typeof sup.category === "string" && sup.category.trim() !== "") {
+        cats.add(sup.category);
+      }
+    });
     return Array.from(cats);
-  }, []);
+  }, [suppliers]);
 
   // Extract unique locations dynamically
   const locations = useMemo(() => {
-    const locs = new Set(suppliers.map(sup => sup.location));
+    const locs = new Set();
+    suppliers.forEach(sup => {
+      if (sup.location && sup.location.trim() !== "") locs.add(sup.location);
+    });
     return Array.from(locs);
-  }, []);
+  }, [suppliers]);
 
-  // Filter suppliers based on search, category, and location
+  // Filter suppliers by search, category, and location
   const filteredSuppliers = suppliers.filter(sup => {
     const matchName = sup.name.toLowerCase().includes(search.toLowerCase());
-    const matchCategory = category === "" || sup.categories.includes(category);
+    const matchCategory = category === "" ||
+      (Array.isArray(sup.categories) ? sup.categories.includes(category) : sup.category === category);
     const matchLocation = location === "" || sup.location === location;
     return matchName && matchCategory && matchLocation;
   });
 
   return (
-    <div style={{ maxWidth: 900, margin: "40px auto", padding: "0 20px", fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" }}>
+    <div
+      style={{
+        maxWidth: 900,
+        margin: "40px auto",
+        padding: "0 20px",
+        fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+      }}
+    >
       <h2 style={{ color: "#219150", marginBottom: 24, textAlign: "center" }}>Suppliers</h2>
 
       {/* Search and Filters */}
@@ -130,14 +158,22 @@ function Suppliers() {
         </div>
       </div>
 
-      {/* Suppliers List */}
+      {/* Supplier Cards */}
       {filteredSuppliers.length === 0 ? (
         <p style={{ textAlign: "center", color: "#777", fontStyle: "italic" }}>
           No suppliers match your search/filter criteria.
         </p>
       ) : (
-        <ul style={{ listStyle: "none", paddingLeft: 0, display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px,1fr))", gap: 24 }}>
-          {filteredSuppliers.map(({ id, name, rating, categories, location }) => (
+        <ul
+          style={{
+            listStyle: "none",
+            paddingLeft: 0,
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px,1fr))",
+            gap: 24,
+          }}
+        >
+          {filteredSuppliers.map(({ id, name, qualityRating, categories, category, location }) => (
             <li
               key={id}
               style={{
@@ -150,19 +186,19 @@ function Suppliers() {
                 justifyContent: "space-between",
               }}
               tabIndex={0}
-              aria-label={`${name}, rating ${rating} stars, categories ${categories.join(", ")}, located in ${location}`}
+              aria-label={`${name}, rating ${qualityRating ? qualityRating.toFixed(1) : "N/A"} stars, categories ${
+                Array.isArray(categories) ? categories.join(", ") : category || "N/A"
+              }, located in ${location || "N/A"}`}
             >
               <div>
                 <h3 style={{ margin: "0 0 8px", color: "#217f4e" }}>{name}</h3>
                 <p style={{ margin: "0 0 6px", fontWeight: "600" }}>
-                  ⭐ {rating.toFixed(1)}
+                  ⭐ {qualityRating ? qualityRating.toFixed(1) : "N/A"}
                 </p>
                 <p style={{ margin: "0 0 6px", fontSize: "0.9rem", color: "#555" }}>
-                  Category: {categories.join(", ")}
+                  Category: {Array.isArray(categories) ? categories.join(", ") : category || "N/A"}
                 </p>
-                <p style={{ margin: 0, fontSize: "0.9rem", color: "#555" }}>
-                  Location: {location}
-                </p>
+                <p style={{ margin: 0, fontSize: "0.9rem", color: "#555" }}>Location: {location || "N/A"}</p>
               </div>
 
               <div style={{ marginTop: 16, display: "flex", gap: "16px" }}>
@@ -179,8 +215,8 @@ function Suppliers() {
                     textDecoration: "none",
                     transition: "background-color 0.25s",
                   }}
-                  onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#1a7d32")}
-                  onMouseLeave={e => (e.currentTarget.style.backgroundColor = "#219150")}
+                  onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#1a7d32")}
+                  onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#219150")}
                 >
                   View Reviews
                 </Link>
@@ -197,8 +233,8 @@ function Suppliers() {
                     textDecoration: "none",
                     transition: "background-color 0.25s",
                   }}
-                  onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#216a8c")}
-                  onMouseLeave={e => (e.currentTarget.style.backgroundColor = "#2980b9")}
+                  onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#216a8c")}
+                  onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#2980b9")}
                 >
                   Order
                 </Link>

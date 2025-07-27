@@ -1,0 +1,21 @@
+[debug] [2025-07-26T11:26:27.936Z] ----------------------------------------------------------------------
+[debug] [2025-07-26T11:26:27.965Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Prachi\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init functions
+[debug] [2025-07-26T11:26:27.966Z] CLI Version:   14.11.1
+[debug] [2025-07-26T11:26:27.966Z] Platform:      win32
+[debug] [2025-07-26T11:26:27.967Z] Node Version:  v22.13.0
+[debug] [2025-07-26T11:26:27.967Z] Time:          Sat Jul 26 2025 16:56:27 GMT+0530 (India Standard Time)
+[debug] [2025-07-26T11:26:27.967Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-07-26T11:26:27.983Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-07-26T11:26:27.984Z] > authorizing via signed-in user (prachichavhan0606@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Prachi\OneDrive\Desktop\TuteDude\Wizards-TuteDude\front_end
+
